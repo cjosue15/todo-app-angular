@@ -1,0 +1,20 @@
+@import '../../../styles/colors';
+
+.newTodo {
+    input {
+        display: block;
+        width: 100%;
+        padding: 15px 15px;
+        font-size: inherit;
+        line-height: 1.5;
+        color: $light-grayish-blue;
+        background-color: $very-dark-desaturated-blue;
+        border: none;
+        border-radius: 5px;
+        font-family: inherit;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

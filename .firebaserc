@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "todo-list-app-48edb": {
+      "hosting": {
+        "todo-app": [
+          "todo-list-app-48edb"
+        ]
+      }
+    }
+  }
+}

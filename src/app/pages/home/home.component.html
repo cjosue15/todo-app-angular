@@ -1,0 +1,15 @@
+<div class="home">
+    <div class="home-image"></div>
+    <div class="container">
+        <div class="home__content">
+            <div class="todo">
+                <div class="todo__header">
+                    <h1>TODO</h1>
+                    <i><img src="assets/images/icon-sun.svg" alt="Sun" /></i>
+                </div>
+                <app-input (onSubmit)="addTodo($event)"></app-input>
+                <app-list-todos [todos]="todos" (delete)="deleteTodo($event)" (completed)="updateCompleted($event)" (clearAll)="clearAll()"></app-list-todos>
+            </div>
+        </div>
+    </div>
+</div>

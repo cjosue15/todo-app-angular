@@ -1,0 +1,18 @@
+<ul class="todo__list">
+    <li *ngFor="let todo of todos" class="todo__list-item" [ngClass]="{ completed: todo.completed }">
+        <span class="check" (click)="changeCompleted(todo.id)"
+            ><i><img *ngIf="todo.completed" src="assets/images/icon-check.svg" alt="Check" /></i
+        ></span>
+        <p class="text">{{ todo.name }}</p>
+        <i class="delete" (click)="deleteTodo(todo.id)"><img src="assets/images/icon-cross.svg" alt="Delete" /></i>
+    </li>
+    <li class="todo__list-item filters" *ngIf="!todos || todos.length > 0">
+        <small class="filters-counter">{{ todos.length }} items left</small>
+        <div class="filters__types">
+            <small class="filters__types-all" [ngClass]="{ active: filter === 'all' }" (click)="changeFilter('all')">All</small>
+            <small class="filters__types-active" [ngClass]="{ active: filter === 'active' }" (click)="changeFilter('active')">Active</small>
+            <small class="filters__types-completed" [ngClass]="{ active: filter === 'completed' }" (click)="changeFilter('completed')">Completed</small>
+        </div>
+        <small class="filters-clear" (click)="clearCompleted()">Clear Completed</small>
+    </li>
+</ul>

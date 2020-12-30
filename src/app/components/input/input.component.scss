@@ -1,20 +1,62 @@
 @import '../../../styles/colors';
 
 .newTodo {
+    background-color: var(--very-dark-desaturated-blue);
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 20px;
+
     input {
         display: block;
         width: 100%;
-        padding: 15px 15px;
+        padding: 15px 15px 15px 0px;
         font-size: inherit;
         line-height: 1.5;
-        color: $light-grayish-blue;
-        background-color: $very-dark-desaturated-blue;
+        color: var(--light-grayish-blue);
+        background: transparent;
         border: none;
-        border-radius: 5px;
         font-family: inherit;
 
         &:focus {
             outline: none;
+        }
+    }
+
+    .check {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+        background: linear-gradient(to right, var(--very-dark-grayish-blue), var(--very-dark-grayish-blue));
+        position: relative;
+        padding: 1px;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+            background: $linear-gradient;
+        }
+
+        i {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            border-radius: 50%;
+            background: var(--very-dark-desaturated-blue);
+            text-align: center;
+            line-height: 22px;
+
+            img {
+                width: 12px;
+            }
+        }
+
+        &.completed {
+            background: $linear-gradient;
+            i {
+                background: $linear-gradient;
+            }
         }
     }
 }

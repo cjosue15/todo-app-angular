@@ -7,17 +7,12 @@
     border-radius: 5px;
     margin-top: 20px;
     overflow: hidden;
+    box-shadow: var(--shadow);
 
     &-item {
-        color: $light-grayish-blue;
-        background: $very-dark-desaturated-blue;
-        // border-bottom: 1px solid $very-fark-grayish-blue;
-        border-bottom: 1px solid $very-dark-grayish-blue;
-        // background: $light-grayish-blue;
-        // background: $light-grayish-blue-hover;
-        // background: $dark-grayish-blue;
-        // background: $very-dark-grayish-blue;
-        // background: $very-fark-grayish-blue;
+        color: var(--light-grayish-blue);
+        background: var(--very-dark-desaturated-blue);
+        border-bottom: 1px solid var(--very-dark-grayish-blue);
         display: flex;
         align-items: center;
         padding: 20px 20px;
@@ -31,7 +26,7 @@
             justify-content: center;
             align-items: center;
             margin-right: 20px;
-            background: linear-gradient(to right, $very-dark-grayish-blue, $very-dark-grayish-blue);
+            background: linear-gradient(to right, var(--very-dark-grayish-blue), var(--very-dark-grayish-blue));
             position: relative;
             padding: 1px;
             border-radius: 50%;
@@ -46,7 +41,7 @@
                 height: 24px;
                 display: inline-block;
                 border-radius: 50%;
-                background: $very-dark-desaturated-blue;
+                background: var(--very-dark-desaturated-blue);
                 text-align: center;
                 line-height: 22px;
 
@@ -66,7 +61,7 @@
 
             .text {
                 text-decoration: line-through;
-                color: $very-dark-grayish-blue;
+                color: var(--very-dark-grayish-blue);
             }
         }
 
@@ -92,9 +87,24 @@
 .filters {
     display: flex;
     justify-content: space-between;
-    color: $dark-grayish-blue;
+    color: var(--dark-grayish-blue);
+    border-bottom: none;
+    border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 
     &__types {
+        @media screen and (max-width: 550px) {
+            display: none;
+
+            // &.mobile {
+            //     display: block;
+            //     text-align: center;
+            //     width: 100%;
+            // }
+        }
+
         font-weight: 700;
         &-all {
             margin-right: 20px;
@@ -108,6 +118,21 @@
 
         &-completed {
             cursor: pointer;
+        }
+    }
+
+    &.mobile {
+        margin-top: 1em;
+        display: none;
+        border-radius: 5px;
+
+        @media screen and (max-width: 550px) {
+            display: block;
+            .filters__types {
+                display: block;
+                text-align: center;
+                width: 100%;
+            }
         }
     }
 

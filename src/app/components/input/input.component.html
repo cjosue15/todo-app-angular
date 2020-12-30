@@ -1,3 +1,7 @@
 <form (ngSubmit)="submitInput()" class="newTodo">
+    <!-- <span class="check" (click)="changeCompleted(todo.id)" -->
+    <span class="check" [ngClass]="{ completed: completed }" (click)="changeCompleted()"
+        ><i><img *ngIf="completed" src="assets/images/icon-check.svg" alt="Check" /></i
+    ></span>
     <input type="text" class="form-control" [(ngModel)]="newTodo" name="newTodo" autocomplete="off" />
 </form>

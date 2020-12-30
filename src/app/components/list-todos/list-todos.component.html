@@ -15,4 +15,11 @@
         </div>
         <small class="filters-clear" (click)="clearCompleted()">Clear Completed</small>
     </li>
+    <li class="todo__list-item filters mobile" *ngIf="!todos || todos.length > 0">
+        <div class="filters__types">
+            <small class="filters__types-all" [ngClass]="{ active: filter === 'all' }" (click)="changeFilter('all')">All</small>
+            <small class="filters__types-active" [ngClass]="{ active: filter === 'active' }" (click)="changeFilter('active')">Active</small>
+            <small class="filters__types-completed" [ngClass]="{ active: filter === 'completed' }" (click)="changeFilter('completed')">Completed</small>
+        </div>
+    </li>
 </ul>

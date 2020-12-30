@@ -5,7 +5,10 @@
             <div class="todo">
                 <div class="todo__header">
                     <h1>TODO</h1>
-                    <i><img src="assets/images/icon-sun.svg" alt="Sun" /></i>
+                    <!-- <i (click)="changeTheme()"><img [src]="'assets/images/icon-sun.svg'" alt="Sun" /></i> -->
+                    <i (click)="changeTheme()"
+                        ><img [src]="isDark ? 'assets/images/icon-sun.svg' : 'assets/images/icon-moon.svg'" [alt]="isDark ? 'Sun' : 'Moon'"
+                    /></i>
                 </div>
                 <app-input (onSubmit)="addTodo($event)"></app-input>
                 <app-list-todos [todos]="todos" (delete)="deleteTodo($event)" (completed)="updateCompleted($event)" (clearAll)="clearAll()"></app-list-todos>

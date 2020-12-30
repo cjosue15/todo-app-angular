@@ -3,7 +3,7 @@
 .home {
     // background-image: linear-gradient(hsl(192, 100%, 67%) to hsl(280, 87%, 65%));
     position: relative;
-    background: $very-dark-blue;
+    background: var(--very-dark-blue);
 
     &-image {
         width: 100%;
@@ -36,6 +36,19 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            margin-bottom: 40px;
+
+            h1 {
+                color: $very-light-gray;
+                font-size: 45px;
+                letter-spacing: 5px;
+                font-weight: 500;
+                margin: 0;
+            }
+
+            i {
+                cursor: pointer;
+            }
         }
     }
 }

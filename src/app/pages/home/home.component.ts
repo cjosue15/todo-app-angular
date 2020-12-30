@@ -8,13 +8,18 @@ import { Todo } from '../../models/Todo';
     styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+    body = document.querySelector('body');
     todos: Todo[];
+    isDark: boolean;
     constructor(private todoService: TodoService) {
         this.todos = [];
+        this.isDark = localStorage.getItem('theme') === 'dark' ? true : false;
     }
 
     ngOnInit(): void {
         this.getTodos();
+        const theme = localStorage.getItem('theme') || 'dark-mode';
+        this.body.classList.add(theme);
     }
 
     getTodos(): void {
@@ -23,8 +28,8 @@ export class HomeComponent implements OnInit {
         });
     }
 
-    addTodo(text: string): void {
-        const todo = new Todo(text);
+    addTodo({ name, completed }): void {
+        const todo = new Todo(name, completed);
 
         this.todoService.addTodo(todo);
     }
@@ -41,5 +46,19 @@ export class HomeComponent implements OnInit {
 
     clearAll() {
         this.todoService.clearAll();
+    }
+
+    changeTheme() {
+        if (this.body.classList.contains('dark')) {
+            this.body.classList.remove('dark');
+            this.body.classList.add('light');
+            localStorage.setItem('theme', 'light');
+            this.isDark = false;
+        } else {
+            this.body.classList.remove('light');
+            this.body.classList.add('dark');
+            this.isDark = true;
+            localStorage.setItem('theme', 'dark');
+        }
     }
 }
